@@ -165,6 +165,15 @@ class CarInterface(CarInterfaceBase):
     if candidate in (CAR.KIA_OPTIMA_H,):
       ret.dashcamOnly = True
 
+    # Gasoline MX5 is identification-only pending CAN parsing and safety validation.
+    # Do not enable lateral or longitudinal actuation for this candidate.
+    if candidate == CAR.HYUNDAI_SANTA_FE_5TH_GEN:
+      ret.dashcamOnly = True
+      ret.alphaLongitudinalAvailable = False
+      ret.openpilotLongitudinalControl = False
+      ret.pcmCruise = True
+      ret.safetyConfigs = [get_safety_config(structs.CarParams.SafetyModel.noOutput)]
+
     return ret
 
   @staticmethod

@@ -374,6 +374,14 @@ class CAR(Platforms):
     CarSpecs(wheelbase=2.81, steerRatio=13.72),
     flags=HyundaiFlags.CANFD_ANGLE_STEERING,
   )
+  # Validation-only candidate based on passive logs from 2024 MX5 2.5L gasoline.
+  # Hardware, harness, steering ratio, CAN topology and safety are NOT validated.
+  HYUNDAI_SANTA_FE_5TH_GEN = HyundaiCanFDPlatformConfig(
+    [HyundaiCarDocs("Hyundai Santa Fe 2.5L Gasoline (MX5) 2024", "Validation only (dashcam)")],
+    HYUNDAI_SANTA_FE_HEV_5TH_GEN.specs,  # provisional; verify gasoline specs
+    flags=HyundaiFlags.CANFD_ANGLE_STEERING,  # unverified LFA2 parser selection
+  )
+
   HYUNDAI_SONATA = HyundaiPlatformConfig(
     [HyundaiCarDocs("Hyundai Sonata 2020-23", "All", video="https://www.youtube.com/watch?v=ix63r9kE3Fw",
                    car_parts=CarParts.common([CarHarness.hyundai_a]))],

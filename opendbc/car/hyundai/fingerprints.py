@@ -372,6 +372,17 @@ FW_VERSIONS = {
       b'\xf1\x00MX5_ RDR -----      1.00 1.01 99110-R6000         ',
     ],
   },
+  # From one recorded MY2024 Santa Fe MX5 2.5L gasoline (MES, LHD).
+  # Identification-only: *do not* reuse Hybrid steering/longitudinal safety.
+  CAR.HYUNDAI_SANTA_FE_5TH_GEN: {
+    (Ecu.fwdCamera, 0x7c4, None): [
+      b'\xf1\x00MX5 MFC  AT MES LHD 1.00 1.05 99211-P6000 231107',
+    ],
+    (Ecu.fwdRadar, 0x7d0, None): [
+      b'\xf1\x00MX5_ RDR -----      1.00 1.01 99110-P6000         ',
+    ],
+  },
+
   CAR.HYUNDAI_CUSTIN_1ST_GEN: {
     (Ecu.abs, 0x7d1, None): [
       b'\xf1\x00KU ESC \x01 101!\x02\x03 58910-O3200',
